@@ -8,13 +8,13 @@ import gym
 
 from gym import error, spaces, utils
 from gym.utils import seeding
-from vh_graph.envs.utils import Graph, Task, Predicate
+from .utils import Graph, Task, Predicate
 
-from simulation.evolving_graph.utils import load_graph_dict, load_name_equivalence, graph_dict_helper
-from simulation.evolving_graph.execution import ScriptExecutor, ExecutionInfo
-from simulation.evolving_graph.scripts import read_script_from_string, Action
-from simulation.evolving_graph.environment import *
-from profilehooks import profile
+from evolving_graph.utils import load_graph_dict, load_name_equivalence, graph_dict_helper
+from evolving_graph.execution import ScriptExecutor, ExecutionInfo
+from evolving_graph.scripts import read_script_from_string, Action
+from evolving_graph.environment import *
+# from profilehooks import profile
 
 
 class VhGraphEnv(gym.Env):
@@ -85,10 +85,10 @@ class VhGraphEnv(gym.Env):
             'ceiling'
     ]
 
-    def __init__(self, n_chars=1, max_nodes=200):
+    def __init__(self, max_nodes=200):
         self.graph_helper = graph_dict_helper()
-        self.n_chars = n_chars
-        self.action_space_n = [spaces.Discrete(len(self.actions)) for i in range(self.n_chars)] # TODO: not sure what this is for
+        self.n_chars = 1
+        self.action_space = spaces.Discrete(len(self.actions))
         self.name_equivalence = load_name_equivalence()
         self.observation_space = Graph(max_nodes)
 

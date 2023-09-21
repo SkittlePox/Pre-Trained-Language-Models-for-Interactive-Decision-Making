@@ -3,8 +3,10 @@ import re
 import random
 import numpy as np
 
+import virtualhome
+
 from gym.spaces.space import Space
-from simulation.evolving_graph.utils import load_graph_dict, graph_dict_helper
+from evolving_graph.utils import load_graph_dict, graph_dict_helper
 
 
 verbose = True

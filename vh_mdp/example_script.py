@@ -11,7 +11,7 @@ task_goals = ['(inside cutting_board[2012] bathroom[1])']
 
 print('Restart...')
 s = env.reset(state_path , task_goals[0])
-env.to_pomdp()
+# env.to_pomdp()
 
 objects, predicates = env.get_objects_and_predicates()
 ipdb.set_trace()
